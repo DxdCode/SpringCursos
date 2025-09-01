@@ -19,7 +19,7 @@ public class CategoryController {
     private CategoryService categoryService;
 
 
-    @PostMapping
+    @PostMapping("/crear")
     public ResponseEntity<Categoria> crearCategoria(@RequestBody Categoria categoria) {
         Categoria nuevaCategoria = categoryService.crearCategoria(categoria);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevaCategoria);
@@ -38,7 +38,7 @@ public class CategoryController {
         return ResponseEntity.ok(categoria);
     }
 
-    @PutMapping("/{idCategoria}")
+    @PutMapping("actualizar/{idCategoria}")
     public ResponseEntity<Categoria> actualizarCategoria(@PathVariable Long idCategoria ,@RequestBody Categoria categoria) {
         Categoria categoriaActualizada = categoryService.actualizarCategoria(idCategoria, categoria);
         return ResponseEntity.ok(categoriaActualizada);
